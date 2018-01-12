@@ -1,6 +1,11 @@
 import React from 'react'
+import Layout from './components/structure/Layout'
 
-const App = () => <div> Hello World 👋 </div>
+import {BrowserRouter} from 'react-router-dom'
 
+const App = () =>
+  <BrowserRouter>
+    <Layout />
+  </BrowserRouter>
 
 export default App
