@@ -45,9 +45,9 @@ const AddProductForm = ({onChangeHandler, name, price, img, category, submitProd
 }
 
 AddProductForm.propTypes = {
-  onChangeHandler: PropTypes.string.isRequired,
+  onChangeHandler: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   submitProductToServer: PropTypes.func.isRequired

@@ -12,9 +12,10 @@ const style = {
 const Header = () => {
   return (
     <nav style={style.container}>
-      <NavItem className='fa fa-home' exact to='/'> Home </NavItem>
+      <NavItem exact to='/'> Home </NavItem>
       <NavItem to='/about'>About </NavItem>
       <NavItem to='/add-product'> Add Product</NavItem>
+      <NavItem to='/products'> Products </NavItem>
     </nav>
   )
 }
