@@ -7,15 +7,15 @@ export default class DataProvider extends Component {
     isLoaded: false,
     products: []
   }
-  
+
   methods = {
     getAllProducts: () => {
       $.ajax({
         url: '/api/products',
         method: 'GET'
-      }).done((response) =>{
-        console.log('from DateProvider',response)
-        this.setState({ products: response.products, isLoaded: true})
+      }).done((response) => {
+        console.log('from DateProvider', response)
+        this.setState({ products: response.products, isLoaded: true })
       })
     },
     deleteProduct: id => {
@@ -23,18 +23,25 @@ export default class DataProvider extends Component {
         url: `/api/products/${id}`,
         method: 'DELETE'
       }).done((response) => {
-        console.log('DELETED from DataProvider',response)
+        console.log('DELETED from DataProvider', response)
         this.methods.getAllProducts()
+      })
+    },
+    getOneProduct: (id) => {
+      $.ajax({
+        url: `/api/products/${id}`,
+        method: 'GET'
+      }).done((response) => {
+        console.log('One product recieved', response)
+        this.setState({ products: response.products, isLoaded: true })
       })
     }
   }
 
-  
-  componentDidMount() {
+  componentDidMount () {
     this.methods.getAllProducts()
   }
 
-  
   render () {
     const domainData = {
       ...this.state,
@@ -43,12 +50,11 @@ export default class DataProvider extends Component {
     return (
       <div>
         {
-          this.state.isLoaded 
-          ? <Layout domainData={domainData}/>
-          : <div>...Loading</div>
+          this.state.isLoaded
+            ? <Layout domainData={domainData} />
+            : <div>...Loading</div>
         }
-        </div>
+      </div>
     )
   }
 }
-

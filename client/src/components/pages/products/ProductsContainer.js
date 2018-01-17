@@ -6,8 +6,8 @@ const ProductsContainer = ({domainData}) => {
   return (
     <div>
       <ProductList
-          products={domainData.products}
-          deleteProduct={domainData.deleteProduct} />
+        products={domainData.products}
+        deleteProduct={domainData.deleteProduct} />
     </div>
   )
 }

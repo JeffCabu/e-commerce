@@ -61,7 +61,7 @@ Router.route('/:productId')
       if (err) {
         res.json({error: err})
       } else {
-        res.json({msg: `Deleted: ${product}`})
+        res.json({msg: `Deleted: ${deleteProduct}`, data: product})
       }
     })
   })

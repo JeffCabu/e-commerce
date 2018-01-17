@@ -6,8 +6,11 @@ const ProductList = ({products, deleteProduct}) => {
   return (
     <div>
       {
-        products.map(product => {
-          return <ProductCard {...product} deleteProduct={deleteProduct} />
+        products.map((product, index) => {
+          return <ProductCard
+            {...product}
+            deleteProduct={deleteProduct}
+            key={index} />
         })
       }
     </div>

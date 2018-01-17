@@ -8,13 +8,13 @@ const Layout = ({domainData}) => {
   return (
     <div>
       <Header />
-      <Main domainData={domainData}/>
+      <Main domainData={domainData} />
       <Footer />
     </div>
   )
 }
 
-// Layout.propTypes = {
-//   domainData: apt
-// }
+Layout.propTypes = {
+  domainData: PropTypes.object.isRequired
+}
 export default Layout
