@@ -29,7 +29,7 @@ const handleErrors = response => {
   return response
 }
 
-export const signupUser = (user) => ajaxRequest('sign-up', 'POST', user)
+export const signupUser = (user) => ajaxRequest('signup', 'POST', user)
 
 export const loginUser = (email, password) => ajaxRequest('login', 'POST', {email, password})
 
