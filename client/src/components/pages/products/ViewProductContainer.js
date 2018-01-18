@@ -7,6 +7,7 @@ class ViewProductContainer extends Component {
   state = {
     product: null
   }
+
   componentDidMount = () => {
     this.getOneProduct(this.props.match.params._id)
   }

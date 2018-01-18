@@ -5,7 +5,7 @@ const ViewProduct = ({product}) => {
   return (
     <div>
       <p>{product.name}</p>
-      <p>{product.img}</p>
+      <img src={product.img} />
       <p>${product.price}</p>
     </div>
   )

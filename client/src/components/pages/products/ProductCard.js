@@ -9,6 +9,9 @@ const style = {
   media: {
     border: '2px red solid',
     height: 200
+  },
+  link: {
+    color: 'white'
   }
 }
 const ProductCard = ({name, price, img, category, _id, deleteProduct}) => {
@@ -27,7 +30,7 @@ const ProductCard = ({name, price, img, category, _id, deleteProduct}) => {
         </CardContent>
         <CardActions>
           <Button dense color='primary' onClick={() => deleteProduct(_id)}>Delete</Button>
-          <Button raised color='primary'><Link to={`/product/${_id}`}>View</Link></Button>
+          <Button raised color='primary'><Link to={`/product/${_id}`} style={style.link}>View</Link></Button>
         </CardActions>
       </Card>
     </div>

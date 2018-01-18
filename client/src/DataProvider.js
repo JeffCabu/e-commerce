@@ -1,3 +1,4 @@
+import * as UserApi from './lib/userApi'
 import React, { Component } from 'react'
 import Layout from './components/structure/Layout'
 import $ from 'jquery'
@@ -5,7 +6,8 @@ import $ from 'jquery'
 export default class DataProvider extends Component {
   state = {
     isLoaded: false,
-    products: []
+    products: [],
+    user: null
   }
 
   methods = {
@@ -18,7 +20,7 @@ export default class DataProvider extends Component {
         this.setState({ products: response.products, isLoaded: true })
       })
     },
-    deleteProduct: id => {
+    deleteProduct: (id) => {
       $.ajax({
         url: `/api/products/${id}`,
         method: 'DELETE'
@@ -27,15 +29,22 @@ export default class DataProvider extends Component {
         this.methods.getAllProducts()
       })
     },
-    getOneProduct: (id) => {
-      $.ajax({
-        url: `/api/products/${id}`,
-        method: 'GET'
-      }).done((response) => {
-        console.log('One product recieved', response)
-        this.setState({ products: response.products, isLoaded: true })
-      })
+    newUser: (user) => {
+      UserApi.signupUser(user)
+        .then(user => {
+          this.setState({user})
+          return user
+        })
     }
+    // getOneProduct: (id) => {
+    //   $.ajax({
+    //     url: `/api/products/${id}`,
+    //     method: 'GET'
+    //   }).done((response) => {
+    //     console.log('One product recieved', response)
+    //     this.setState({ products: response.products, isLoaded: true })
+    //   })
+    // }
   }
 
   componentDidMount () {

@@ -5,37 +5,52 @@ import PropTypes from 'prop-types'
 import Button from 'material-ui/Button'
 import { Link } from 'react-router-dom'
 
-const SignUpForm = ({id}) => {
+const style = {
+  container: {
+    border: '1px solid black',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  card: {
+    width: '50%'
+  }
+}
+const SignUpForm = ({id, onChangeHandler, onSubmit}) => {
   return (
-    <form>
-      <div>
-        <Card>
+    <form style={style.container}>
+      <div style={style.card}>
+        <Card raised='true'>
           <Typography type='headline' component='h2'>
             First Name:
           </Typography>
-          <input type='text' id='firstName' />
+          <input type='text' onChange={onChangeHandler} placeholder='First Name' id='firstName' />
         </Card>
-        <Card>
+        <Card raised='true'>
           <Typography type='headline' component='h2'>
             Last Name:
           </Typography>
-          <input type='text' id='lastName' />
+          <input type='text' onChange={onChangeHandler} placeholder='Last Name' id='lastName' />
         </Card>
-        <Card>
-          <Typography type='headline' component='h2'>
+        <Card raised='true'>
+          <Typography type='headline' component='h2' data-domain='.com'>
             Email:
           </Typography>
-          <input type='text' id='email' />
+          <input type='text' onChange={onChangeHandler} placeholder='Email' id='email' />
         </Card>
       </div>
       <div>
-        <Button raised><Link to='/'>Submit</Link></Button>
+        <Button raised onClick={onSubmit}>Sign-up</Button>
+        <Link to='/'>Login</Link>
       </div>
     </form>
   )
 }
 
 SignUpForm.propTypes = {
-  id: PropTypes.object.isRequired
+  id: PropTypes.object.isRequired,
+  onChangeHandler: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 }
 export default SignUpForm
