@@ -2,7 +2,7 @@ import React from 'react'
 
 const style = {
   container: {
-    background: 'blue',
+    // background: 'blue',
     color: 'white',
     padding: 20
   }

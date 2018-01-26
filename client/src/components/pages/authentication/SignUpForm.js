@@ -8,13 +8,35 @@ import { Link } from 'react-router-dom'
 const style = {
   container: {
     border: '1px solid black',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center'
+    // display: 'flex',
+    // flexDirection: 'column',
+    // justifyContent: 'space-around',
+    // alignItems: 'center'
   },
   card: {
-    width: '50%'
+    width: '50vw'
+  },
+  butlin: {
+    padding: 0
+  },
+  link: {
+    color: 'black',
+    width: 88,
+    height: 36,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  button: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  inputField: {
+    width: '99%',
+    height: 25,
+    borderRadius: 5
   }
 }
 const SignUpForm = ({id, onChangeHandler, onSubmit}) => {
@@ -25,24 +47,39 @@ const SignUpForm = ({id, onChangeHandler, onSubmit}) => {
           <Typography type='headline' component='h2'>
             First Name:
           </Typography>
-          <input type='text' onChange={onChangeHandler} placeholder='First Name' id='firstName' />
+          <input style={style.inputField} type='text' onChange={onChangeHandler} placeholder='First Name' id='firstName' />
         </Card>
+
         <Card raised='true'>
           <Typography type='headline' component='h2'>
             Last Name:
           </Typography>
-          <input type='text' onChange={onChangeHandler} placeholder='Last Name' id='lastName' />
+          <input style={style.inputField} type='text' onChange={onChangeHandler} placeholder='Last Name' id='lastName' />
         </Card>
+
         <Card raised='true'>
-          <Typography type='headline' component='h2' data-domain='.com'>
+          <Typography type='headline' component='h2'>
             Email:
           </Typography>
-          <input type='text' onChange={onChangeHandler} placeholder='Email' id='email' />
+          <input style={style.inputField} type='text' onChange={onChangeHandler} placeholder='Email' id='email' />
+        </Card>
+
+        <Card>
+          <Typography type='headline' component='h2'>
+            Password:
+          </Typography>
+          <input style={style.inputField} type='text' onChange={onChangeHandler} id='password' placeholder='Password' />
         </Card>
       </div>
-      <div>
-        <Button raised onClick={onSubmit}>Sign-up</Button>
-        <Link to='/'>Login</Link>
+      <br />
+      <div style={style.button}>
+        <div>
+          <small>Already signed-up? Click the LOGIN button</small>
+        </div>
+        <div>
+          <Button raised onClick={onSubmit}>Register</Button>
+          <Button style={style.butlin} raised><Link to='/login' style={style.link}>Login</Link></Button>
+        </div>
       </div>
     </form>
   )

@@ -4,7 +4,12 @@ import PropTypes from 'prop-types'
 
 const style = {
   color: {
-    color: 'white'
+    color: 'white',
+    width: 90,
+    height: 34,
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 }
 const NavItem = ({to, children, exact}) =>

@@ -7,7 +7,8 @@ const ProductsContainer = ({domainData}) => {
     <div>
       <ProductList
         products={domainData.products}
-        deleteProduct={domainData.deleteProduct} />
+        deleteProduct={domainData.deleteProduct}
+        addItemToCart={domainData.addItemToCart} />
     </div>
   )
 }
